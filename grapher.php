@@ -66,7 +66,8 @@ class Grapher extends CLI {
         $output = $options->getOpt('output', '-');
         if($output == '-') $output = 'php://stdout';
 
-        $namespaces = array_map('cleanID', $options->args);
+
+        $namespaces = array_map('cleanID', $options->getArgs());
         if(!count($namespaces)) $namespaces = array(''); //import from top
 
         $fh = @fopen($output, 'w');
